@@ -134,7 +134,10 @@ def find_optimal_clusters(linkage_matrix: Matrix) -> tuple[Vector, float, int]:
 
     heights: Vector = linkage_matrix[:, 2]
     diffs: Vector = heights[1:] - heights[:-1]
+    # the line below gently nudges the model towards sqrt(n) clusters (parameters are tunable)
     diffs *= build_scaling_weights(n = len(diffs), intensity = 1.5, curve = 1.1)[::-1]
+    # the line below corrects for reduced waiting time for a split when lots of lineages exist
+    diffs *= np.arange(len(diffs) + 1, 1, -1)
     largest_diff_index: int = int(np.argmax(diffs))
     optimal_height: float = (heights[largest_diff_index] + heights[largest_diff_index + 1]) / 2
     labels: Vector = fcluster(linkage_matrix, optimal_height, "distance")
