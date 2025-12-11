@@ -2,6 +2,9 @@ from scipy.cluster.hierarchy import fcluster, dendrogram
 import numpy as np
 from numpy import ndarray as Matrix, ndarray as Vector
 import matplotlib.pyplot as plt
+import pandas as pd
+from typing import Any
+from scipy.stats.distributions import norm
 import re
 
 # -------------------------------------------------------------
@@ -108,24 +111,57 @@ def construct_linkage_matrix(splits: list[Split], mapping: dict[str, int]) -> Ma
 
 # -------------------------------------------------------------
 
-def find_optimal_clusters(linkage_matrix: Matrix) -> Vector:
+def find_optimal_clusters(linkage_matrix: Matrix) -> tuple[Vector, float, int]:
     '''
-    loops through each k, evaluates the clustering produced by that k, and picks the optimal one.
-    returns the clustering produced by fcluster() on that optimal k
+    finds the optimal height at which to cut the dendrogram, then
+    returns (labels, height, num_clusters),
+    where `height` is the optimal height, `num_clusters` is the number of clusters,
+    and `labels` is the clustering produced by fcluster() with that height
     '''
-    raise
+
+    def build_scaling_weights(n: int, intensity: float, curve: float) -> Vector:
+        '''
+        encourages not too many and not too few clusters by explicitly favouring
+        cluster counts around the square root of the number of tips
+        '''
+        if n == 0: return np.array([])
+        if n == 1: return np.array([1])
+        if n == 2: return np.array([1, 1])
+        if n == 3: return np.array([1, ((intensity + 1) / 2) ** curve, 1])
+        denom: int = int(np.round(np.sqrt(n - 1))) - 1
+        left: Vector = np.arange(1, intensity, (intensity - 1) / denom)
+        right: Vector = np.arange(intensity, 1, -(intensity - 1) / (n - 1 - denom))
+        return np.concatenate([left, right, np.array([1])]) ** curve
+
+    heights: Vector = linkage_matrix[:, 2]
+    diffs: Vector = heights[1:] - heights[:-1]
+    diffs *= build_scaling_weights(n = len(diffs), intensity = 1.5, curve = 1.1)[::-1]
+    largest_diff_index: int = int(np.argmax(diffs))
+    optimal_height: float = (heights[largest_diff_index] + heights[largest_diff_index + 1]) / 2
+    labels: Vector = fcluster(linkage_matrix, optimal_height, "distance")
+    num_clusters: int = np.max(labels)
+    return (labels, float(optimal_height), int(num_clusters))
 
 # -------------------------------------------------------------
 
 def plot_dendrogram(
-    linkage_matrix: Matrix, mapping: dict[str, int], tip_type: str = "species"
+    linkage_matrix: Matrix, mapping: dict[str, int],
+    tip_type: str = "species", num_clusters: int | None = None
 ) -> None:
+    '''
+    plots the linkage matrix as a dendrogram (time-calibrated phylogenetic tree),
+    labelling the indices as their species (or other tip type) names
+    '''
+    height_threshold: float | None = None
+    if num_clusters is not None:
+        height_threshold = linkage_matrix[-num_clusters + 1, 2]
     ax = plt.gca()
     dendrogram(
         linkage_matrix,
         ax = ax,
         orientation = "left",
-        leaf_label_func = lambda index: {index: clade for clade, index in mapping.items()}[index]
+        leaf_label_func = lambda index: {index: clade for clade, index in mapping.items()}[index],
+        color_threshold = height_threshold
     )
     plt.xlabel("Divergence Time (MYA)")
     plt.ylabel(tip_type.title())
@@ -133,3 +169,41 @@ def plot_dendrogram(
     root_name: str = max(mapping, key = lambda clade: mapping[clade])
     plt.title(f"Time-Calibrated Phylogenetic Tree of {root_name}")
     plt.show()
+
+# -------------------------------------------------------------
+
+def get_clusters_rich_info(
+    clusters: Vector, mapping: dict[str, int]
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    '''
+    given the raw output fcluster(), provides 2 dataframes
+    (1 for the species, and 1 for the clusters)
+    containing various info about them that may be useful
+    '''
+    
+    num_clusters: int = np.max(clusters)
+    species_data: list[dict[str, Any]] = []
+    reverse_mapping: dict[int, str] = {index: clade for clade, index in mapping.items()}
+
+    for index, entry in enumerate(clusters):
+        species_data.append({
+            "tip": reverse_mapping[index],
+            "index": index,
+            "cluster": int(entry)
+        })
+
+    cluster_data: list[dict[str, Any]] = []
+    for cluster in range(1, num_clusters + 1):
+        data: dict[str, Any] = {}
+        data["cluster"] = cluster
+        tips: list[str] = [
+            str(species["index"]) for species in species_data if species["cluster"] == cluster
+        ]
+        data["tips"] = ",".join(tips)
+        data["num_tips"] = len(tips)
+        cluster_data.append(data)
+
+    return (
+        pd.DataFrame.from_records(species_data).set_index("tip"),
+        pd.DataFrame.from_records(cluster_data).set_index("cluster")
+    )
