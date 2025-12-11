@@ -35,10 +35,11 @@ ax = plt.gca()
 dendrogram(
     linkage_matrix,
     ax = ax,
-    leaf_label_func = lambda index: "\n".join({index: clade for clade, index in mapping.items()}[index])
+    orientation = "left",
+    leaf_label_func = lambda index: {index: clade for clade, index in mapping.items()}[index]
 )
-plt.xticks(fontsize = 7)
-plt.xlabel("Species")
-plt.ylabel("Divergence Time (MYA)")
+plt.xlabel("Divergence Time (MYA)")
+plt.ylabel("Species")
+ax.yaxis.set_label_position("right")
 plt.title("Time-Calibrated Phylogenetic Tree of Ursidae")
 plt.show()

@@ -1,6 +1,7 @@
-from scipy.cluster.hierarchy import fcluster
+from scipy.cluster.hierarchy import fcluster, dendrogram
 import numpy as np
 from numpy import ndarray as Matrix, ndarray as Vector
+import matplotlib.pyplot as plt
 import re
 
 # -------------------------------------------------------------
@@ -113,3 +114,22 @@ def find_optimal_clusters(linkage_matrix: Matrix) -> Vector:
     returns the clustering produced by fcluster() on that optimal k
     '''
     raise
+
+# -------------------------------------------------------------
+
+def plot_dendrogram(
+    linkage_matrix: Matrix, mapping: dict[str, int], tip_type: str = "species"
+) -> None:
+    ax = plt.gca()
+    dendrogram(
+        linkage_matrix,
+        ax = ax,
+        orientation = "left",
+        leaf_label_func = lambda index: {index: clade for clade, index in mapping.items()}[index]
+    )
+    plt.xlabel("Divergence Time (MYA)")
+    plt.ylabel(tip_type.title())
+    ax.yaxis.set_label_position("right")
+    root_name: str = max(mapping, key = lambda clade: mapping[clade])
+    plt.title(f"Time-Calibrated Phylogenetic Tree of {root_name}")
+    plt.show()
