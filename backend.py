@@ -4,7 +4,6 @@ from numpy import ndarray as Matrix, ndarray as Vector
 import matplotlib.pyplot as plt
 import pandas as pd
 from typing import Any
-from scipy.stats.distributions import norm
 import re
 
 # -------------------------------------------------------------
