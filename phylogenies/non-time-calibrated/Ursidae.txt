@@ -1,0 +1,7 @@
+Ursidae -> Giant Panda, A
+A -> Spectacled Bear, Ursinae
+Ursinae -> B, C
+B -> American Black Bear, D
+D -> Brown Bear, Polar Bear
+C -> Asiatic Black Bear, E
+E -> Sun Bear, Sloth Bear
