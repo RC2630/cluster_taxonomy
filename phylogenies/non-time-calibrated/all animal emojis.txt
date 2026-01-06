@@ -1,98 +1,98 @@
 Animalia -> Cnidaria, Bilateria
-Cnidaria -> 🪼, 🪸
+Cnidaria -> 🪼 Blue Jellyfish [Cyanea lamarckii], 🪸 Staghorn Coral [Acropora cervicornis]
 Bilateria -> Chordata, Protostomia
 Protostomia -> Arthropoda, Spiralia
-Spiralia -> Mollusca, 🪱
-Mollusca -> 🦪, GC
+Spiralia -> Mollusca, 🪱 Common Earthworm [Lumbricus terrestris]
+Mollusca -> 🦪 Pacific Oyster [Magallana gigas], GC
 GC -> Gastropoda, Cephalopoda
-Gastropoda -> 🐌, 🐚
-Cephalopoda -> 🐙, 🦑
+Gastropoda -> 🐌 Garden Snail [Cornu aspersum], 🐚 Florida Crown Conch [Melongena corona]
+Cephalopoda -> 🐙 Common Octopus [Octopus vulgaris], 🦑 Giant Squid [Architeuthis dux]
 Arthropoda -> Pancrustacea, Arachnida
-Arachnida -> 🕷️, 🦂
+Arachnida -> 🕷️ Black House Spider [Badumna insignis], 🦂 Arizona Bark Scorpion [Centruroides sculpturatus]
 Pancrustacea -> Insecta, Malacostraca
-Malacostraca -> Reptantia, 🦐
-Reptantia -> 🦀, 🦞
+Malacostraca -> Reptantia, 🦐 Emperor Shrimp [Zenopontonia rex]
+Reptantia -> 🦀 Dungeness Crab [Metacarcinus magister], 🦞 European Lobster [Homarus gammarus]
 Insecta -> Polyneoptera, Holometabola
-Polyneoptera -> 🦗, 🪳
+Polyneoptera -> 🦗 Great Green Bush-Cricket [Tettigonia viridissima], 🪳 German Cockroach [Blattella germanica]
 Holometabola -> Hymenoptera, NP
-Hymenoptera -> 🐜, 🐝
+Hymenoptera -> 🐜 Black Garden Ant [Lasius niger], 🐝 Western Honey Bee [Apis mellifera]
 NP -> Coleoptera, Panorpida
-Coleoptera -> 🪲, 🐞
-Panorpida -> 🦋, Diptera
-Diptera -> 🦟, 🪰
-Chordata -> 🦈, Euteleostomi
+Coleoptera -> 🪲 Golden Stag Beetle [Lamprima aurata], 🐞 Seven-Spotted Ladybug [Coccinella septempunctata]
+Panorpida -> 🦋 Monarch Butterfly [Danaus plexippus], Diptera
+Diptera -> 🦟 Common House Mosquito [Culex pipiens], 🪰 Housefly [Musca domestica]
+Chordata -> 🦈 Great White Shark [Carcharodon carcharias], Euteleostomi
 Euteleostomi -> Actinopterygii, Tetrapoda
-Actinopterygii -> Ovalentaria, 🐡
-Ovalentaria -> 🐟, 🐠
-Tetrapoda -> 🐸, Amniota
+Actinopterygii -> Ovalentaria, 🐡 White-Spotted Puffer [Arothron hispidus]
+Ovalentaria -> 🐟 Neon Damselfish [Pomacentrus coelestis], 🐠 Freshwater Angelfish [Pterophyllum scalare]
+Tetrapoda -> 🐸 American Bullfrog [Lithobates catesbeianus], Amniota
 Amniota -> Mammalia, Sauria
 Sauria -> Squamata, Archelosauria
-Squamata -> 🦎, 🐍
-Archelosauria -> 🐢, Archosauria
-Archosauria -> 🐊, Dinosauria
-Dinosauria -> 🦕†, Theropoda
-Theropoda -> 🦖†, Aves
+Squamata -> 🦎 Common House Gecko [Hemidactylus frenatus], 🐍 Smooth Green Snake [Opheodrys vernalis]
+Archelosauria -> 🐢 European Pond Turtle [Emys orbicularis], Archosauria
+Archosauria -> 🐊 American Crocodile [Crocodylus acutus], Dinosauria
+Dinosauria -> 🦕 Brachiosaurus [Brachiosaurus altithorax] †, Theropoda
+Theropoda -> 🦖 T-Rex [Tyrannosaurus rex] †, Aves
 Aves -> Galloanserae, Neoaves
 Galloanserae -> Galliformes, Anseriformes
-Galliformes -> 🦃, PG
-PG -> 🐓, 🦚
-Anseriformes -> 🦆, Anserinae
-Anserinae -> 🪿, 🦢
-Neoaves -> 🦩, CP
+Galliformes -> 🦃 Wild Turkey [Meleagris gallopavo], PG
+PG -> 🐓 Red Junglefowl [Gallus gallus], 🦚 Indian Peafowl [Pavo cristatus]
+Anseriformes -> 🦆 Mallard [Anas platyrhynchos], Anserinae
+Anserinae -> 🪿 Greylag Goose [Anser anser], 🦢 Mute Swan [Cygnus olor]
+Neoaves -> 🦩 Greater Flamingo [Phoenicopterus roseus], CP
 CP -> Columbidae, ET
-Columbidae -> 🕊️, 🦤†
-ET -> 🐧, Telluraves
+Columbidae -> 🕊️ Rock Dove [Columba livia], 🦤 Dodo [Raphus cucullatus] †
+ET -> 🐧 Gentoo Penguin [Pygoscelis papua], Telluraves
 Telluraves -> Hieraves, Psittacopasseres
-Hieraves -> 🦅, 🦉
-Psittacopasseres -> 🦜, Passeriformes
-Passeriformes -> 🐦‍⬛, 🐦
+Hieraves -> 🦅 Bald Eagle [Haliaeetus leucocephalus], 🦉 Great Horned Owl [Bubo virginianus]
+Psittacopasseres -> 🦜 Scarlet Macaw [Ara macao], Passeriformes
+Passeriformes -> 🐦‍⬛ Common Blackbird [Turdus merula], 🐦 Northern Cardinal [Cardinalis cardinalis]
 Mammalia -> Diprotodontia, Placentalia
-Diprotodontia -> 🦘, 🐨
+Diprotodontia -> 🦘 Red Kangaroo [Osphranter rufus], 🐨 Koala [Phascolarctos cinereus]
 Placentalia -> Boreoeutheria, Atlantogenata
-Atlantogenata -> 🦥, Elephantidae
-Elephantidae -> 🐘, 🦣†
+Atlantogenata -> 🦥 Brown-Throated Sloth [Bradypus variegatus], Elephantidae
+Elephantidae -> 🐘 Asian Elephant [Elephas maximus], 🦣 Woolly Mammoth [Mammuthus primigenius] †
 Boreoeutheria -> Euarchontoglires, Laurasiatheria
 Euarchontoglires -> Glires, Primates
-Primates -> 🐒, Hominidae
-Hominidae -> 🦧, 🦍
-Glires -> 🐇, Rodentia
-Rodentia -> 🐿️, CM
-CM -> 🦫, Muroidea
-Muroidea -> 🐹, Muridae
-Muridae -> 🐁, 🐀
-Laurasiatheria -> 🦔, Scrotifera
-Scrotifera -> 🦇, Ferungulata
+Primates -> 🐒 Brown Spider Monkey [Ateles hybridus], Hominidae
+Hominidae -> 🦧 Bornean Orangutan [Pongo pygmaeus], 🦍 Western Gorilla [Gorilla gorilla]
+Glires -> 🐇 Snowshoe Hare [Lepus americanus], Rodentia
+Rodentia -> 🐿️ Eastern Chipmunk [Tamias striatus], CM
+CM -> 🦫 North American Beaver [Castor canadensis], Muroidea
+Muroidea -> 🐹 European Hamster [Cricetus cricetus], Muridae
+Muridae -> 🐁 House Mouse [Mus musculus], 🐀 Black Rat [Rattus rattus]
+Laurasiatheria -> 🦔 European Hedgehog [Erinaceus europaeus], Scrotifera
+Scrotifera -> 🦇 Egyptian Fruit Bat [Rousettus aegyptiacus], Ferungulata
 Ferungulata -> Carnivora, Euungulata
 Carnivora -> Felidae, Caniformia
-Felidae -> 🐈, Panthera
-Panthera -> LL, 🐅
-LL -> 🦁, 🐆
+Felidae -> 🐈 Cat [Felis catus], Panthera
+Panthera -> LL, 🐅 Tiger [Panthera tigris]
+LL -> 🦁 Lion [Panthera leo], 🐆 Leopard [Panthera pardus]
 Caniformia -> Canidae, Arctoidea
-Canidae -> 🦊, Canis
-Canis -> 🐕, 🐺
+Canidae -> 🦊 Red Fox [Vulpes vulpes], Canis
+Canis -> 🐕 Dog [Canis familiaris], 🐺 Wolf [Canis lupus]
 Arctoidea -> Ursidae, Mustelida
-Ursidae -> 🐼, Ursus
-Ursus -> 🐻, 🐻‍❄️
-Mustelida -> 🦭, Musteloidea
-Musteloidea -> 🦨, PM
-PM -> 🦝, Mustelidae
-Mustelidae -> 🦡, 🦦
+Ursidae -> 🐼 Giant Panda [Ailuropoda melanoleuca], Ursus
+Ursus -> 🐻 Brown Bear [Ursus arctos], 🐻‍❄️ Polar Bear [Ursus maritimus]
+Mustelida -> 🦭 Harbour Seal [Phoca vitulina], Musteloidea
+Musteloidea -> 🦨 Striped Skunk [Mephitis mephitis] , PM
+PM -> 🦝 Raccoon [Procyon lotor], Mustelidae
+Mustelidae -> 🦡 American Badger [Taxidea taxus], 🦦 Eurasian Otter [Lutra lutra]
 Euungulata -> Perissodactyla, Artiodactyla
-Perissodactyla -> Equidae, 🦏
-Equidae -> DZ, 🐎
-DZ -> 🫏, 🦓
+Perissodactyla -> Equidae, 🦏 White Rhinoceros [Ceratotherium simum]
+Equidae -> DZ, 🐎 Wild Horse [Equus ferus]
+DZ -> 🫏 African Wild Ass [Equus africanus], 🦓 Plains Zebra [Equus quagga] 
 Artiodactyla -> Camelidae, Artiofabula
-Camelidae -> 🦙, Camelus
-Camelus -> 🐪, 🐫
+Camelidae -> 🦙 Llama [Lama glama], Camelus
+Camelus -> 🐪 Dromedary [Camelus dromedarius], 🐫 Bactrian Camel [Camelus bactrianus]
 Artiofabula -> Suidae, Cetruminantia
-Suidae -> 🐖, 🐗
+Suidae -> 🐖 Pig [Sus domesticus], 🐗 Wild Boar [Sus scrofa]
 Cetruminantia -> Ruminantia, Whippomorpha
-Whippomorpha -> 🦛, Cetacea
-Cetacea -> 🐋, 🐬
-Ruminantia -> BC, 🦒
+Whippomorpha -> 🦛 Hippopotamus [Hippopotamus amphibius], Cetacea
+Cetacea -> 🐋 Blue Whale [Balaenoptera musculus], 🐬 Common Bottlenose Dolphin [Tursiops truncatus]
+Ruminantia -> BC, 🦒 Reticulated Giraffe [Giraffa reticulata]
 BC -> Bovidae, Cervidae
-Cervidae -> 🦌, 🫎
+Cervidae -> 🦌 White-Tailed Deer [Odocoileus virginianus], 🫎 Moose [Alces alces]
 Bovidae -> Bovini, Caprinae
-Caprinae -> 🐏, 🐐
-Bovini -> Bovina, 🐃
-Bovina -> 🐄, 🦬
+Caprinae -> 🐏 Sheep [Ovis aries], 🐐 Goat [Capra hircus]
+Bovini -> Bovina, 🐃 Water Buffalo [Bubalus bubalis]
+Bovina -> 🐄 Cattle [Bos taurus], 🦬 American Bison [Bison bison]

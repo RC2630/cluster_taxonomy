@@ -1,6 +1,7 @@
 from scipy.cluster.hierarchy import fcluster, dendrogram
 import numpy as np
 from numpy import ndarray as Matrix, ndarray as Vector
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
 from typing import Any
@@ -63,7 +64,7 @@ def parse_file(file: str) -> tuple[list[Split], dict[str, int]]:
     index is for use in the linkage matrix later
     '''
 
-    with open(file, "r") as f:
+    with open(file, "r", encoding = "utf-8") as f:
         lines: list[str] = f.readlines()
     splits: list[Split] = [Split(line) for line in lines]
     if splits[0].split_time == -1:
@@ -183,24 +184,30 @@ def find_optimal_clusters(
 def plot_dendrogram(
     linkage_matrix: Matrix, mapping: dict[str, int],
     tip_type: str = "species", num_clusters: int | None = None,
-    is_time_calibrated: bool = True, tree_topic: str | None = None
+    is_time_calibrated: bool = True, tree_topic: str | None = None,
+    plot_height: float | None = None, tip_label_size: float | None = None
 ) -> None:
     '''
     plots the linkage matrix as a dendrogram (time-calibrated phylogenetic tree),
     labelling the indices as their species (or other tip type) names
     '''
+    mpl.rcParams["font.family"] = "Segoe UI Emoji"
     height_threshold: float | None = None
     if is_time_calibrated and num_clusters is not None:
         height_threshold = linkage_matrix[-num_clusters + 1, 2]
     elif not is_time_calibrated:
         height_threshold = 0
-    ax = plt.gca()
+    default_plot_width, default_plot_height = plt.rcParams["figure.figsize"]
+    fig, ax = plt.subplots(figsize = (
+        default_plot_width, default_plot_height if plot_height is None else plot_height
+    ))
     dendrogram(
         linkage_matrix,
         ax = ax,
         orientation = "left",
         leaf_label_func = lambda index: {index: clade for clade, index in mapping.items()}[index],
-        color_threshold = height_threshold
+        color_threshold = height_threshold,
+        leaf_font_size = tip_label_size
     )
     if is_time_calibrated:
         plt.xlabel("Divergence Time (MYA)")
