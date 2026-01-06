@@ -21,18 +21,39 @@ class Split:
         '''
         parses 1 line from input file to a Split
         '''
+        is_time_calibrated: bool = True
         match: re.Match[str] | None = re.match(r"(.+) -> (.+), (.+) \((.+)\)", line)
         if match is None:
-            raise ValueError("line is not in the correct format")
+            is_time_calibrated = False
+            match = re.match(r"(.+) -> (.+), (.+)", line)
+            if match is None:
+                raise ValueError("line is not in the correct format")
         self.parent_clade = match.groups()[0]
         self.left_child_clade = match.groups()[1]
         self.right_child_clade = match.groups()[2]
-        self.split_time = float(match.groups()[3])
+        # if not time-calibrated, set all "split times" to -1 for now and deal with them later
+        self.split_time = float(match.groups()[3]) if is_time_calibrated else -1
         self.size = -1 # we will work on the sizes later
         self.orig_string = line.strip()
 
     def __repr__(self) -> str:
         return self.orig_string
+
+# -------------------------------------------------------------
+
+def fill_in_split_orders(splits: list[Split]) -> None:
+    '''
+    fills in the split orders (fake "split times") for a non-time-calibrated phylogeny.
+    modifies each element of `splits` in place
+    '''
+    name_to_split_order: dict[str, int] = {splits[0].parent_clade: 0}
+    for split in splits:
+        split.split_time = name_to_split_order[split.parent_clade]
+        name_to_split_order[split.left_child_clade] = split.split_time + 1
+        name_to_split_order[split.right_child_clade] = split.split_time + 1
+    max_split_order: float = max([split.split_time for split in splits])
+    for split in splits:
+        split.split_time = float(max_split_order + 1 - split.split_time)
 
 # -------------------------------------------------------------
 
@@ -45,6 +66,8 @@ def parse_file(file: str) -> tuple[list[Split], dict[str, int]]:
     with open(file, "r") as f:
         lines: list[str] = f.readlines()
     splits: list[Split] = [Split(line) for line in lines]
+    if splits[0].split_time == -1:
+        fill_in_split_orders(splits)
     splits.sort(key = lambda split: split.split_time)
 
     clade_mapping: dict[str, int] = {}
@@ -159,15 +182,18 @@ def find_optimal_clusters(
 
 def plot_dendrogram(
     linkage_matrix: Matrix, mapping: dict[str, int],
-    tip_type: str = "species", num_clusters: int | None = None
+    tip_type: str = "species", num_clusters: int | None = None,
+    is_time_calibrated: bool = True, tree_topic: str | None = None
 ) -> None:
     '''
     plots the linkage matrix as a dendrogram (time-calibrated phylogenetic tree),
     labelling the indices as their species (or other tip type) names
     '''
     height_threshold: float | None = None
-    if num_clusters is not None:
+    if is_time_calibrated and num_clusters is not None:
         height_threshold = linkage_matrix[-num_clusters + 1, 2]
+    elif not is_time_calibrated:
+        height_threshold = 0
     ax = plt.gca()
     dendrogram(
         linkage_matrix,
@@ -176,11 +202,18 @@ def plot_dendrogram(
         leaf_label_func = lambda index: {index: clade for clade, index in mapping.items()}[index],
         color_threshold = height_threshold
     )
-    plt.xlabel("Divergence Time (MYA)")
+    if is_time_calibrated:
+        plt.xlabel("Divergence Time (MYA)")
+    if not is_time_calibrated:
+        plt.xticks([])
     plt.ylabel(tip_type.title())
     ax.yaxis.set_label_position("right")
-    root_name: str = max(mapping, key = lambda clade: mapping[clade])
-    plt.title(f"Time-Calibrated Phylogenetic Tree of {root_name} ({num_clusters} clusters)")
+    root_name: str = \
+        tree_topic if tree_topic is not None else max(mapping, key = lambda clade: mapping[clade])
+    if is_time_calibrated:
+        plt.title(f"Time-Calibrated Phylogenetic Tree of {root_name} ({num_clusters} clusters)")
+    else:
+        plt.title(f"Phylogenetic Tree of {root_name}")
     plt.show()
 
 # -------------------------------------------------------------
