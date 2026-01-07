@@ -1,0 +1,23 @@
+Insecta -> Pterygota, Silverfish 衣鱼
+Pterygota -> Odonata, Neoptera
+Odonata -> Dragonfly 蜻蜓, Damselfly 豆娘
+Neoptera -> Polyneoptera, Eumetabola
+Polyneoptera -> Orthoptera, Dictyoptera
+Orthoptera -> Acridomorpha, Cricket 蟋蟀
+Acridomorpha -> Grasshopper 蚱蜢, Locust 蝗虫
+Dictyoptera -> Blattodea, Mantis 螳螂
+Blattodea -> Cockroach 蟑螂, Termite 白蚁
+Eumetabola -> Paraneoptera, Holometabola
+Paraneoptera -> Hemiptera, Lice 虱子
+Hemiptera -> CB, Aphid 蚜虫
+CB -> Cicada 蝉, Bed Bug 臭虫
+Holometabola -> Hymenoptera, Aparaglossata
+Hymenoptera -> BA, Wasp 黄蜂
+BA -> Bee 蜜蜂, Ant 蚂蚁
+Aparaglossata -> Coleoptera, Panorpida
+Coleoptera -> LF, Beetle 甲虫
+LF -> Ladybug 瓢虫, Firefly 萤火虫
+Panorpida -> Lepidoptera, Antliophora
+Lepidoptera -> Butterfly 蝴蝶, Moth 飞蛾
+Antliophora -> Diptera, Flea 跳蚤
+Diptera -> Fly 苍蝇, Mosquito 蚊子

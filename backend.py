@@ -4,7 +4,7 @@ from numpy import ndarray as Matrix, ndarray as Vector
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
-from typing import Any
+from typing import Any, Literal
 import re
 
 # -------------------------------------------------------------
@@ -185,13 +185,17 @@ def plot_dendrogram(
     linkage_matrix: Matrix, mapping: dict[str, int],
     tip_type: str = "species", num_clusters: int | None = None,
     is_time_calibrated: bool = True, tree_topic: str | None = None,
-    plot_height: float | None = None, tip_label_size: float | None = None
+    plot_height: float | None = None, tip_label_size: float | None = None,
+    special_character_support: Literal["emoji", "chinese", "none"] = "none"
 ) -> None:
     '''
     plots the linkage matrix as a dendrogram (time-calibrated phylogenetic tree),
     labelling the indices as their species (or other tip type) names
     '''
-    mpl.rcParams["font.family"] = "Segoe UI Emoji"
+    if special_character_support == "emoji":
+        mpl.rcParams["font.family"] = "Segoe UI Emoji"
+    elif special_character_support == "chinese":
+        mpl.rcParams["font.family"] = "SimHei"
     height_threshold: float | None = None
     if is_time_calibrated and num_clusters is not None:
         height_threshold = linkage_matrix[-num_clusters + 1, 2]
