@@ -2,13 +2,14 @@ Insecta -> Pterygota, Silverfish 衣鱼
 Pterygota -> Odonata, Neoptera
 Odonata -> Dragonfly 蜻蜓, Damselfly 豆娘
 Neoptera -> Polyneoptera, Eumetabola
-Polyneoptera -> Orthoptera, Dictyoptera
+Polyneoptera -> Orthoptera, SD
 Orthoptera -> Acridomorpha, Cricket 蟋蟀
 Acridomorpha -> Grasshopper 蚱蜢, Locust 蝗虫
+SD -> Dictyoptera, Stick Insect 竹节虫
 Dictyoptera -> Blattodea, Mantis 螳螂
 Blattodea -> Cockroach 蟑螂, Termite 白蚁
 Eumetabola -> Paraneoptera, Holometabola
-Paraneoptera -> Hemiptera, Lice 虱子
+Paraneoptera -> Hemiptera, Louse 虱子
 Hemiptera -> CB, Aphid 蚜虫
 CB -> Cicada 蝉, Bed Bug 臭虫
 Holometabola -> Hymenoptera, Aparaglossata
