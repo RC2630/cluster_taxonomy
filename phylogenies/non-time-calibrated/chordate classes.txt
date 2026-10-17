@@ -1,0 +1,11 @@
+Chordata -> Leptocardii (lancelets), Olfactores
+Olfactores -> Tunicata, Vertebrata
+Tunicata -> Ascidiacea (ascidians & thaliaceans), Appendicularia (larvaceans)
+Vertebrata -> Cyclostomi, Gnathostomata
+Cyclostomi -> Myxini (hagfishes), Petromyzontida (lampreys)
+Gnathostomata -> Chondrichthyes (cartilaginous fishes), Osteichthyes
+Osteichthyes -> Actinopterygii (ray-finned fishes), Sarcopterygii
+Sarcopterygii -> Actinistia (coelacanths), Rhipidistia
+Rhipidistia -> Dipnoi (lungfishes), Tetrapoda
+Tetrapoda -> Amphibia (amphibians), Amniota
+Amniota -> Sauria (reptiles & birds), Mammalia (mammals)

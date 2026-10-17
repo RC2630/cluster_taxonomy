@@ -1,0 +1,16 @@
+Animalia -> Planulozoa, Porifera 🧽
+Planulozoa -> Bilateria, Cnidaria 🪼
+Bilateria -> Protostomia, Deuterostomia
+Deuterostomia -> Ambulacraria, Chordata 🐟
+Ambulacraria -> Hemichordata 🪱, Echinodermata ⭐
+Protostomia -> Spiralia, Ecdysozoa
+Ecdysozoa -> Panarthropoda, Nematoida
+Panarthropoda -> Tactopoda, Onychophora 🐛
+Tactopoda -> Tardigrada 🦠, Arthropoda 🦞
+Nematoida -> Nematomorpha 🪱, Nematoda 🪱
+Spiralia -> Platytrochozoa, Rotifera 🦠
+Platytrochozoa -> Lophotrochozoa, Platyhelminthes 🪱
+Lophotrochozoa -> MK, Annelida 🪱
+MK -> Kryptotrochozoa, Mollusca 🐙
+Kryptotrochozoa -> Lophophorata, Nemertea 🪱
+Lophophorata -> Bryozoa 🦠, Brachiopoda 🐚
